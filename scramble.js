@@ -99,7 +99,6 @@ const gameStatus = {
   maxStrikes: 2,
   passes: 0,
   maxPasses: 2,
-  shuffledWords:[]
 }
   /**
    * The start()Function
@@ -109,7 +108,7 @@ const gameStatus = {
    *  Set poits to 0
    *  Set passes to start number
    *  Use Shuflfe function to get shuffled arrey and store in game list of words
-   *  Use shift function to get first word and store in game word
+   *  Use shift function to get first word and store in game words
    *  Use shuffle function to get shuffled scrambled word and store in game scrambeld
    *  Response: scrambled word
    * else 
@@ -118,21 +117,20 @@ const gameStatus = {
    */
 function start (){
   if (gameStatus.active === false) {
-    gameStatus.active = true
+     gameStatus.active = true
      gameStatus.strikes = 0
      gameStatus.poits = 0
      gameStatus.passes = 0
+     gameStatus.words = shuffle(words)
+     gameStatus.word = words.shift()
+     gameStatus.scrambleld = shuffle(word)
+
   } else { 
     console.log ("there is an active game")
   }
 }
 console.log(shuffle(words[0]))
 
-
-
-function shift (){
-
-}
 
   /**
 * Create a guess() function that will be used by the player to guess the word and will do the following:
