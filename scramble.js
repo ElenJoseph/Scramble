@@ -118,12 +118,15 @@ const gameStatus = {
 function start (){
   if (gameStatus.active === false) {
      gameStatus.active = true
+     gameStatus.maxStrikes = 2
      gameStatus.strikes = 0
      gameStatus.poits = 0
-     gameStatus.passes = 0
-     gameStatus.words = shuffle(words)
+     gameStatus.passes = 2
+     gameStatus.words = shuffle(gameStatus.words)
      gameStatus.word = words.shift()
-     gameStatus.scrambleld = shuffle(word)
+     gameStatus.scrambleld = shuffle(gameStatus.word)
+     console.log(` guess the name of this country
+     : ${gameStatus.scrambleld}`)
 
   } else { 
     console.log ("there is an active game")
@@ -131,7 +134,7 @@ function start (){
 }
 console.log(shuffle(words[0]));
 
-console.log(shift(words(''))
+//console.log(shift(words('')))
 
 
   /**
@@ -144,6 +147,25 @@ console.log(shift(words(''))
 
 * 
 */
+
+function guess (guessed){
+  if(gameStatus.active == true) {
+
+     if(guessed == gameStatus.word){
+        console.log(`You got it! ${gameStatus.word}`)
+        gameStatus.poits = gameStatus.poits +1
+       }
+       else { 
+           if (gameStatus.strikes < gameStatus.maxStrikes )
+              console.log(`You're wrong,try again this county: ${gameStatus.scrambleld}`)
+             gameStatus.strikes = gameStatus.strikes +1
+            }
+            else {
+
+            }
+
+      }
+}
 
 /**
 * Create a pass() function that will be used by the player to skip a word and will do the following:
