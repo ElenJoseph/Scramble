@@ -129,7 +129,9 @@ function start (){
     console.log ("there is an active game")
   }
 }
-console.log(shuffle(words[0]))
+console.log(shuffle(words[0]));
+
+console.log(shift(words(''))
 
 
   /**
