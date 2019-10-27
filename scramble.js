@@ -75,18 +75,18 @@ console.log(help())
   */
 
   const words = [
-    'Afghanistan',
-    'Albania',
-    'Algeria',
-    'Andorra',
+    'Brazil',
+    'Canada',
+    'Mexico',
+    'Cuba',
     'Angola',
-    'Antigua',
+    'Peru',
     'Barbuda',
     'Argentina',
     'Armenia',
     'Australia',
     'Austria',
-    'Azerbaijan'
+    'China'
     ]
 
 const gameStatus = {
@@ -151,8 +151,8 @@ function guess (guessed){
         console.log(`You got it! ${gameStatus.word}`)
         gameStatus.poits = gameStatus.poits +1
        }
-       if(game.words.length > 0){
-         console.log(`You got 1 point! Your score is: ${gameStatus.poits}`) 
+       if(gameStatus.words.length > 0){
+         console.log(`Correct! You got 1 point! Your score is: ${gameStatus.poits}`) 
          nextWord()
        }else{
          console.log(`You just finished! Now your score is: ${gameStatus.poits}`)
@@ -160,14 +160,21 @@ function guess (guessed){
        }
        } else { 
            if (gameStatus.strikes < gameStatus.maxStrikes )
-              console.log(`You're wrong,try again this county: ${gameStatus.scrambleld}`)
+              console.log(`You're wrong,try again this county name: ${gameStatus.scrambleld}`)
              gameStatus.strikes = gameStatus.strikes +1
 
+       }
+      }
+    
     function nextWord(){
       gameStatus.word = gameStatus.words.shift()
       gameStatus.scrambledWord = shuffle(gameStatus.word)
       console.log(`The next scrambled word is: ${gameStatus.scrambledWord}`)
     }
+            
+
+
+    
 
 /**
 * Create a pass() function that will be used by the player to skip a word and will do the following:
@@ -193,10 +200,10 @@ function pass() {
       console.log(`You have reached the maximum number of passes. Please try again.`)
     }
   }else{
-    console.log("There is NO active game!... should be one before start passing. Please strat a new game.")
+    console.log("There is NO active game!... should be Active passing. Please strat a new game.")
   }
 }
-       }
+
  /**
   
 
@@ -214,6 +221,7 @@ function pass() {
 
 /**
 * After the game ends the player should be able to start a new game using the start() function.
-*
-*
-**/ 
+*/
+
+
+
