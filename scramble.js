@@ -119,7 +119,7 @@ function start (){
   if (gameStatus.active === false) {
      gameStatus.active = true
      gameStatus.maxStrikes = 2
-     gameStatus.strikes = 0
+     gameStatus.strikes = 2
      gameStatus.poits = 0
      gameStatus.passes = 2
      gameStatus.words = shuffle(gameStatus.words)
@@ -135,8 +135,6 @@ function start (){
 console.log(shuffle(words[0]));
 
 //console.log(shift(words('')))
-
-
   /**
 * Create a guess() function that will be used by the player to guess the word and will do the following:
 * Check to see if the guessed word matches the current word unscrambled.
@@ -146,7 +144,6 @@ console.log(shuffle(words[0]));
 * The player should NOT be able to make guesses if there is no active game.
 * 
 */
-
 function guess (guessed){
   if(gameStatus.active == true) {
 
@@ -161,17 +158,16 @@ function guess (guessed){
          console.log(`You just finished! Now your score is: ${gameStatus.poits}`)
          gameStatus.active = false
        }
-       }else { 
+       } else { 
            if (gameStatus.strikes < gameStatus.maxStrikes )
               console.log(`You're wrong,try again this county: ${gameStatus.scrambleld}`)
              gameStatus.strikes = gameStatus.strikes +1
-            }
-            else {
 
-            }
-
-      }
-}
+    function nextWord(){
+      gameStatus.word = gameStatus.words.shift()
+      gameStatus.scrambledWord = shuffle(gameStatus.word)
+      console.log(`The next scrambled word is: ${gameStatus.scrambledWord}`)
+    }
 
 /**
 * Create a pass() function that will be used by the player to skip a word and will do the following:
@@ -179,10 +175,31 @@ function guess (guessed){
 * Remove the from the game list (the same word should not appear twice) and the next word should be displayed.
 * The player should NOT receive a point for passing.
 * 
-* 
 *  
-*/ /**
+*/
+
+function pass() {
+  if(gameStatus.active){
+    if(gameStatus.passes > 0){
+      gameStatus.passes--
+      if(gameStatus.words.length > 0){
+        console.log(`You passed! Try again. you only have ${gameStatus.passes} more pass(es).`)
+        nextWord()
+      }else{
+        console.log(`You finished! your final score is: ${game.points}`)
+        gameStatus.active = false
+      }
+    }else{
+      console.log(`You have reached the maximum number of passes. Please try again.`)
+    }
+  }else{
+    console.log("There is NO active game!... should be one before start passing. Please strat a new game.")
+  }
+}
+
+ /**
   
+
 * The player should NOT be able to pass if there is no active game.
 */
 
@@ -198,6 +215,3 @@ function guess (guessed){
 /**
 * After the game ends the player should be able to start a new game using the start() function.
 */
-
-
-
