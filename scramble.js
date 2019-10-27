@@ -196,7 +196,7 @@ function pass() {
     console.log("There is NO active game!... should be one before start passing. Please strat a new game.")
   }
 }
-
+       }
  /**
   
 
@@ -214,4 +214,6 @@ function pass() {
 
 /**
 * After the game ends the player should be able to start a new game using the start() function.
-*/
+*
+*
+**/ 
