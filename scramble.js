@@ -129,7 +129,7 @@ function start (){
      : ${gameStatus.scrambleld}`)
 
   } else { 
-    console.log ("there is an active game")
+    console.log ("there is an active game, finish the active game first!")
   }
 }
 console.log(shuffle(words[0]));
@@ -144,7 +144,6 @@ console.log(shuffle(words[0]));
 * If the words do match the player will receive a point. The word should be removed from the game list (the same word should not appear twice) and the next word should be displayed.
 * If the words do NOT match the player will receive a strike and the current word will be displayed again.
 * The player should NOT be able to make guesses if there is no active game.
-
 * 
 */
 
@@ -155,7 +154,14 @@ function guess (guessed){
         console.log(`You got it! ${gameStatus.word}`)
         gameStatus.poits = gameStatus.poits +1
        }
-       else { 
+       if(game.words.length > 0){
+         console.log(`You got 1 point! Your score is: ${gameStatus.poits}`) 
+         nextWord()
+       }else{
+         console.log(`You just finished! Now your score is: ${gameStatus.poits}`)
+         gameStatus.active = false
+       }
+       }else { 
            if (gameStatus.strikes < gameStatus.maxStrikes )
               console.log(`You're wrong,try again this county: ${gameStatus.scrambleld}`)
              gameStatus.strikes = gameStatus.strikes +1
