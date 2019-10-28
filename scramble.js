@@ -175,11 +175,6 @@ function shuffle (src) {
           }
   
          }
-              
-  
-  
-      
-  
   /**
   * Create a pass() function that will be used by the player to skip a word and will do the following:
   * Check if player has any passes left
